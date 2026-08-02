@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>CDGen</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo">CD</div>
+      <div class="title-block">
+        <h1>CDGen</h1>
+        <p>Scan page &rarr; generate document</p>
+      </div>
+    </header>
+
+    <main class="app-body">
+      <div class="options">
+        <div class="format-label">Output format</div>
+        <div class="format-row">
+          <label class="format-choice">
+            <input type="radio" name="outputFormat" value="pdf" checked />
+            <span>PDF</span>
+          </label>
+          <label class="format-choice">
+            <input type="radio" name="outputFormat" value="docx" />
+            <span>Word (.docx)</span>
+          </label>
+        </div>
+      </div>
+
+      <button id="scanBtn" class="primary-btn">
+        <span id="scanBtnLabel">Scan This Page</span>
+      </button>
+
+      <div id="progressWrap" class="progress-wrap hidden">
+        <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
+        <div id="statusText" class="status-text">Working…</div>
+      </div>
+
+      <div id="summary" class="summary hidden"></div>
+
+      <div id="errorBox" class="error-box hidden"></div>
+    </main>
+
+    <footer class="app-footer">
+      <span id="pageInfo">No page scanned yet</span>
+    </footer>
+  </div>
+
+  <!-- Bundled libraries (no remote code, per MV3 requirements) -->
+  <script src="vendor/jspdf.umd.min.js"></script>
+  <script src="vendor/docx.iife.js"></script>
+  <script src="scanner.js"></script>
+  <script src="doc-builders.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
